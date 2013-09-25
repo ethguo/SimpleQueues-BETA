@@ -1,0 +1,71 @@
+name: SimpleQueues
+version: 0.1.0
+author: ethg242
+description: A lightweight queue plugin.
+
+main: com.github.ethg242.simplequeues.SimpleQueues
+
+commands:
+  qlist:
+    description: Lists a queue. "-a" lists the names of all queues.
+    usage: /<command> <queue> OR /<command> -a
+  qadd:
+    description: Adds yourself or another player to a queue.
+    usage: /<command> <queue> [player]
+  qremove:
+    description: Removes yourself or another player from a queue.
+    usage: /<command> <queue> [player]
+  qreset:
+    description: Resets a queue. "-a" resets all queues.
+    usage: /<command> <queue> OR /<command> -a
+  qconfig:
+    description: Creates or deletes a queue.
+    usage: /<command> create <name> <size> [tpX] [tpY] [tpZ] [tpWorld] OR /<command> delete <queue>
+
+permissions:
+  SimpleQueues.*:
+    description: Gives access to all SimpleQueues commands.
+    children:
+      SimpleQueues.list: true
+      SimpleQueues.add.self: true
+      SimpleQueues.add.other: true
+      SimpleQueues.remove.self: true
+      SimpleQueues.remove.other: true
+      SimpleQueues.reset: true
+  SimpleQueues.list:
+    description: Allows you to list the queue.
+    default: true
+  SimpleQueues.add.*:
+    description: Allows you to add both yourself and others to the queue.
+    children:
+      SimpleQueues.add.self: true
+      SimpleQueues.add.other: true
+  SimpleQueues.add.self:
+    description: Allows you to add yourself to the queue.
+    default: true
+  SimpleQueues.add.other:
+    description: Allows you to add another player to the queue.
+    default: op
+  SimpleQueues.remove.*:
+    description: Allows you to remove both yourself and others from the queue.
+    children:
+      SimpleQueues.remove.self: true
+      SimpleQueues.remove.other: true
+  SimpleQueues.remove.self:
+    description: Allows you to remove yourself from the queue.
+    default: true
+  SimpleQueues.remove.other:
+    description: Allows you to remove another player from the queue.
+    default: op
+  SimpleQueues.reset:
+    description: Allows you to reset the queue.
+    default: op
+  SimpleQueues.create:
+    description: Allows you to create a queue.
+    default: op
+  SimpleQueues.edit:
+    description: Allows you to edit a queue.
+    default: op
+  SimpleQueues.delete:
+    description: Allows you to delete a queue.
+    default: op

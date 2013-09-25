@@ -1,0 +1,16 @@
+# ------------------------------------------ #
+# This is the config file for SimpleQueues.  #
+# Online help coming soon!                   #
+# ------------------------------------------ #
+
+# The number of queues allowed on the server.
+maxQueues: 3
+
+# Queues are stored here. Do not edit this unless you know what you are doing!
+queues:
+  demoQueue:
+    size: 10
+    x: 0
+    y: 64
+    z: 0
+    world: world
